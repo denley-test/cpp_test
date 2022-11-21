@@ -5,7 +5,7 @@ WORK_PATH=${CUR_PATH}/..
 INSTALL_PATH=${WORK_PATH}/cpp_test
 
 cd ${WORK_PATH}
-cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} --target glog_test
+cmake -S . -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH}
 cd build && make && make install
 
 cd ${INSTALL_PATH}/bin
