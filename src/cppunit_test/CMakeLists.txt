@@ -5,7 +5,7 @@ project(cppunit_test
 )
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/third_party/cmake-modules")
-find_package(CppUnit REQUIRED)
+find_package(cppunit REQUIRED)
 if(NOT CPPUNIT_FOUND)
   message("CppUnit not find!")
 endif()
