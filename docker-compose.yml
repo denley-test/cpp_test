@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  cpp_test:
+    build: .
+    image: denley/cpp_test
+    working_dir: /opt/cpp_test
+    entrypoint: /opt/cpp_test/script/build_and_run.sh
+    volumes:
+      - .:/opt/cpp_test
