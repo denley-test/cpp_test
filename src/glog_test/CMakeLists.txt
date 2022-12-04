@@ -4,7 +4,7 @@ project(glog_test
   LANGUAGES CXX
 )
 
-find_package(glog 0.7.0 REQUIRED)
+find_package(glog 0.6.0 REQUIRED)
 
 add_executable(${PROJECT_NAME})
 set_target_properties(${PROJECT_NAME}
