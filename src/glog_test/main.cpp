@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <memory>
 
+#ifdef GLOG_CUSTOM_PREFIX_SUPPORT
 void CustomPrefix(std::ostream& os, const google::LogMessageInfo& lmi, void* data)
 {
   os << "[" << std::setw(7) << std::setfill(' ') << lmi.severity << " "
@@ -15,11 +16,17 @@ void CustomPrefix(std::ostream& os, const google::LogMessageInfo& lmi, void* dat
     << std::setw(2) << lmi.time.sec() << ' '
     << lmi.filename << ":" << lmi.line_number << "]";
 }
+#endif
 
 int main(int argc, char* argv[])
 {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
+#ifdef GLOG_CUSTOM_PREFIX_SUPPORT
   google::InitGoogleLogging(argv[0], &CustomPrefix);
+#else
+  google::InitGoogleLogging(argv[0]);
+#endif
+
   std::shared_ptr<void> callback(nullptr, [](void*){
     google::ShutdownGoogleLogging();
   });
